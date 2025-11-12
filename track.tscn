@@ -1,0 +1,109 @@
+[gd_scene load_steps=12 format=3 uid="uid://dlu3ebtsrs0fi"]
+
+[ext_resource type="Theme" uid="uid://bxd6m3mohkg63" path="res://assets/Themes/pantalla_inicio_theme.tres" id="1_l1aip"]
+[ext_resource type="Script" uid="uid://b5av3nf7gdiah" path="res://track.gd" id="1_t0gok"]
+[ext_resource type="StyleBox" uid="uid://hmc3n3y00qvr" path="res://assets/Themes/pantalla_inicio_theme_secundario.tres" id="2_t0gok"]
+[ext_resource type="Texture2D" uid="uid://nle3igflykbp" path="res://assets/Texturas/ConfigCog.png" id="3_vhw2h"]
+[ext_resource type="Texture2D" uid="uid://xoltxr8lt17j" path="res://assets/Texturas/ConfigCogActive.png" id="4_07pqx"]
+[ext_resource type="Texture2D" uid="uid://bykviaoher17u" path="res://assets/Texturas/Loop.png" id="5_dxuj3"]
+[ext_resource type="Texture2D" uid="uid://bt86uoqk2tty8" path="res://assets/Texturas/LoopActive.png" id="6_qugw3"]
+[ext_resource type="Texture2D" uid="uid://c24huuuh4ykuy" path="res://assets/Texturas/Record.png" id="7_k5kjr"]
+[ext_resource type="Texture2D" uid="uid://c7f20vhqejiof" path="res://assets/Texturas/RecordActive.png" id="8_2vwrv"]
+[ext_resource type="Texture2D" uid="uid://cpu8c52eenlp" path="res://assets/Texturas/Effects.png" id="9_5lb0j"]
+[ext_resource type="Theme" uid="uid://cj5qccocrtj8a" path="res://assets/Themes/cute_buttons.tres" id="10_n3dk4"]
+
+[node name="Track" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 20.0
+script = ExtResource("1_t0gok")
+
+[node name="TrackControls" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_l1aip")
+theme_override_styles/panel = ExtResource("2_t0gok")
+
+[node name="PropertyList" type="VBoxContainer" parent="TrackControls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TrackControls/PropertyList"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="TrackControls/PropertyList/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_vhw2h")
+texture_pressed = ExtResource("4_07pqx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="NameTxt" type="LineEdit" parent="TrackControls/PropertyList/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 8.0
+placeholder_text = "Nombre de pista"
+
+[node name="AlwaysShownControls" type="HBoxContainer" parent="TrackControls/PropertyList"]
+layout_mode = 2
+
+[node name="LoopBtn" type="TextureButton" parent="TrackControls/PropertyList/AlwaysShownControls"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("5_dxuj3")
+texture_pressed = ExtResource("6_qugw3")
+
+[node name="RecordBtn" type="TextureButton" parent="TrackControls/PropertyList/AlwaysShownControls"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("7_k5kjr")
+texture_pressed = ExtResource("8_2vwrv")
+
+[node name="EffectsBtn" type="TextureButton" parent="TrackControls/PropertyList/AlwaysShownControls"]
+layout_mode = 2
+toggle_mode = true
+texture_normal = ExtResource("9_5lb0j")
+
+[node name="DeleteBtn" type="Button" parent="TrackControls/PropertyList"]
+layout_mode = 2
+theme = ExtResource("10_n3dk4")
+keep_pressed_outside = true
+text = "Eliminar"
+text_overrun_behavior = 2
+autowrap_mode = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="TrackControls/PropertyList"]
+layout_mode = 2
+
+[node name="TrackVisuals" type="Panel" parent="."]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 4.0
+theme = ExtResource("1_l1aip")
+theme_override_styles/panel = ExtResource("2_t0gok")
+
+[node name="Timeline" type="VBoxContainer" parent="TrackVisuals"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3

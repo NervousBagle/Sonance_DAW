@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg84qau5qvg3t"]
+
+[ext_resource type="Script" uid="uid://d1puodvvuvc08" path="res://src/timeline/TimelineView.gd" id="1_bdpiw"]
+[ext_resource type="Script" uid="uid://dtiyvch41amwb" path="res://src/timeline/TimelineCanvas.gd" id="2_yle3o"]
+
+[node name="TimelineView" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("1_bdpiw")
+
+[node name="TimelineCanvas" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_yle3o")
+bgColor = Color(0.47058824, 0.49019608, 0.61960787, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ClipContainer" type="Control" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Ruler" type="Control" parent="."]
+anchors_preset = 0
+
+[connection signal="gui_input" from="TimelineCanvas" to="TimelineCanvas" method="_gui_input"]
